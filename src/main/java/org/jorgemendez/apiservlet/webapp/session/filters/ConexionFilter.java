@@ -5,8 +5,11 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import org.jorgemendez.apiservlet.webapp.session.service.ServiceJdbcException;
 import org.jorgemendez.apiservlet.webapp.session.util.ConexionBaseDatos;
+import org.jorgemendez.apiservlet.webapp.session.util.ConexionBaseDatosDS;
 
+import javax.naming.NamingException;
 import java.io.IOException;
+import java.rmi.Naming;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -17,7 +20,7 @@ public class ConexionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        try(Connection conn = ConexionBaseDatos.getConnection()){
+        try(Connection conn = ConexionBaseDatosDS.getConnection()){
             if (conn.getAutoCommit()){
                 conn.setAutoCommit(false);
             }
@@ -30,8 +33,8 @@ public class ConexionFilter implements Filter {
                 ((HttpServletResponse)(servletResponse)).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.getMessage());
                 e.printStackTrace();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException |NamingException e) {
+            e.printStackTrace();
         }
     }
 }

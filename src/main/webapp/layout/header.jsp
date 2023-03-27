@@ -18,6 +18,9 @@
           <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Home</a>
         </li>
         <li class="nav-item">
+                  <a class="nav-link" href="${pageContext.request.contextPath}/usuarios">Usuarios</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/productos">Productos</a>
         </li>
         <li class="nav-item">

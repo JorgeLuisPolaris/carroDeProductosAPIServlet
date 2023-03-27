@@ -3,26 +3,23 @@ package org.jorgemendez.apiservlet.webapp.session.controllers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
-import org.jorgemendez.apiservlet.webapp.session.service.LoginService;
-import org.jorgemendez.apiservlet.webapp.session.service.LoginServiceCookieImp;
-import org.jorgemendez.apiservlet.webapp.session.service.LoginServiceSessionImpl;
+import org.jorgemendez.apiservlet.webapp.session.model.Usuario;
+import org.jorgemendez.apiservlet.webapp.session.service.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.Optional;
 
 @WebServlet({"/login","/login.html"})
 public class LoginServlet extends HttpServlet {
-
-    final static String USERNAME = "admin";
-    final static String PASSWORD = "12345";
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String pass = req.getParameter("password");
-
-        if (USERNAME.equals(username) && PASSWORD.equals(pass)) {
+        UsuarioService service = new UsuarioServiceImpl((Connection) req.getAttribute("conn"));
+        Optional<Usuario> usuarioOptional = service.login(username,pass);
+        if (usuarioOptional.isPresent()) {
             HttpSession session = req.getSession();
             session.setAttribute("username", username);
 

@@ -3,6 +3,8 @@
 <h3>${title}</h3>
 <ul class="list-group">
     <li class="list-group-item acive">Menu de opciones  </li>
+    <li class="list-group-item"><a href="${pageContext.request.contextPath}/usuarios">Mostrar usuarios html</a></li>
+
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/productos">Mostrar productos html</a></li>
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/login.html">Login</a></li>
     <li class="list-group-item"><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
