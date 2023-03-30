@@ -1,20 +1,21 @@
 package org.jorgemendez.apiservlet.webapp.session.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import org.jorgemendez.apiservlet.webapp.session.model.Usuario;
 import org.jorgemendez.apiservlet.webapp.session.repositories.UsuarioRepository;
-import org.jorgemendez.apiservlet.webapp.session.repositories.UsuarioRepositoryImpl;
-
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
+@Named("defectoU")
+
 public class UsuarioServiceImpl implements UsuarioService{
+    @Inject
     private UsuarioRepository usuarioRepository;
 
-    public UsuarioServiceImpl(Connection conn) {
-        this.usuarioRepository = new UsuarioRepositoryImpl(conn);
-    }
 
     @Override
     public List<Usuario> listar() {

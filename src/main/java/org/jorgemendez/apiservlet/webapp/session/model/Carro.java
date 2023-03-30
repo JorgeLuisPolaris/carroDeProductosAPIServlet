@@ -1,10 +1,14 @@
 package org.jorgemendez.apiservlet.webapp.session.model;
 
+import org.jorgemendez.apiservlet.webapp.session.configs.CarroCompra;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Carro {
+@CarroCompra
+public class Carro implements Serializable {
     private List<ItemCarro> items;
 
     public Carro() {

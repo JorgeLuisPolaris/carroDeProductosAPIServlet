@@ -1,10 +1,13 @@
 package org.jorgemendez.apiservlet.webapp.session.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.jorgemendez.apiservlet.webapp.session.configs.ProductoServicePrincipal;
 import org.jorgemendez.apiservlet.webapp.session.model.Producto;
 import org.jorgemendez.apiservlet.webapp.session.service.ProductoService;
 import org.jorgemendez.apiservlet.webapp.session.service.ProductoServiceJdbcImpl;
@@ -15,10 +18,14 @@ import java.util.Optional;
 
 @WebServlet("/productos/eliminar")
 public class ProductoEliminarServlet extends HttpServlet {
+    @Inject
+    //@Named("defecto")
+    @ProductoServicePrincipal
+
+    private ProductoService service;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        ProductoService service = new ProductoServiceJdbcImpl(conn);
+
 
         Long id;
         try {

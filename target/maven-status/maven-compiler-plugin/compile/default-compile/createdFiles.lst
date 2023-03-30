@@ -10,6 +10,8 @@ org\jorgemendez\apiservlet\webapp\session\service\ServiceJdbcException.class
 org\jorgemendez\apiservlet\webapp\session\controllers\AgregarCarroServlet.class
 org\jorgemendez\apiservlet\webapp\session\model\ItemCarro.class
 org\jorgemendez\apiservlet\webapp\session\util\ConexionBaseDatos.class
+org\jorgemendez\apiservlet\webapp\session\configs\ProductoServicePrincipal.class
+org\jorgemendez\apiservlet\webapp\session\configs\Repositorio.class
 org\jorgemendez\apiservlet\webapp\session\filters\LoginFiltro.class
 org\jorgemendez\apiservlet\webapp\session\model\Carro.class
 org\jorgemendez\apiservlet\webapp\session\service\LoginServiceCookieImp.class
@@ -17,6 +19,8 @@ org\jorgemendez\apiservlet\webapp\session\repositories\UsuarioRepository.class
 org\jorgemendez\apiservlet\webapp\session\controllers\UsuarioFormServlet.class
 org\jorgemendez\apiservlet\webapp\session\filters\ConexionFilter.class
 org\jorgemendez\apiservlet\webapp\session\model\Usuario.class
+org\jorgemendez\apiservlet\webapp\session\configs\MysqlConnPrincipal.class
+org\jorgemendez\apiservlet\webapp\session\configs\ProducerResources.class
 org\jorgemendez\apiservlet\webapp\session\controllers\ProductoEliminarServlet.class
 org\jorgemendez\apiservlet\webapp\session\controllers\LogoutServlet.class
 org\jorgemendez\apiservlet\webapp\session\repositories\ProductosRepositoryJdbcImpl.class
@@ -27,6 +31,7 @@ org\jorgemendez\apiservlet\webapp\session\service\LoginServiceSessionImpl.class
 org\jorgemendez\apiservlet\webapp\session\filters\TiempoTranscurridoFilter.class
 org\jorgemendez\apiservlet\webapp\session\service\LoginService.class
 org\jorgemendez\apiservlet\webapp\session\controllers\ActualizarCarroServlet.class
+org\jorgemendez\apiservlet\webapp\session\configs\CarroCompra.class
 org\jorgemendez\apiservlet\webapp\session\model\Producto.class
 org\jorgemendez\apiservlet\webapp\session\model\Categoria.class
 org\jorgemendez\apiservlet\webapp\session\controllers\UsuarioEliminarServlet.class

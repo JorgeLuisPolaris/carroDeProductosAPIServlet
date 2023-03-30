@@ -14,6 +14,7 @@ D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiser
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\service\LoginService.java
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\service\UsuarioService.java
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\model\Carro.java
+D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\configs\ProducerResources.java
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\controllers\ProductoFormServlet.java
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\controllers\UsuarioFormServlet.java
 D:\Cursos\JavaEE\carroDeProductosAPIServlet\src\main\java\org\jorgemendez\apiservlet\webapp\session\model\ItemCarro.java

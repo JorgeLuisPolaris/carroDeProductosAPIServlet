@@ -1,15 +1,21 @@
 package org.jorgemendez.apiservlet.webapp.session.repositories;
 
+import jakarta.inject.Inject;
+import org.jorgemendez.apiservlet.webapp.session.configs.MysqlConnPrincipal;
+import org.jorgemendez.apiservlet.webapp.session.configs.Repositorio;
 import org.jorgemendez.apiservlet.webapp.session.model.Categoria;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Repositorio
 public class CategoriaRepositoryImpl implements Repository<Categoria> {
     Connection conn;
 
-    public CategoriaRepositoryImpl(Connection conn) {
+    @Inject
+    public CategoriaRepositoryImpl(@MysqlConnPrincipal Connection conn) {
         this.conn = conn;
     }
 

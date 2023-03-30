@@ -3,7 +3,7 @@
 <jsp:include page="layout/header.jsp"/>
 <h3>${title}</h3>
 <c:choose>
-<c:when test="${sessionScope.carro == null || sessionScope.carro.items.isEmpty()}">
+<c:when test="${carro.items.isEmpty()}">
 <div class="alert alert-warning">Lo sentimos no hay productos en el carro de compras!</div>
 </c:when>
 <c:otherwise>
@@ -30,7 +30,7 @@
     </c:forEach>
     <tr>
         <td colspan="5" style="text-align: right">Total:</td>
-        <td>${sessionScope.carro.total} </td>
+        <td>${carro.total} </td>
     </tr>
 </table>
 <a href="javascript:document.formcarro.submit();" class="btn btn-primary">Actualizar</a>

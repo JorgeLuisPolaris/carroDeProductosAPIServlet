@@ -1,5 +1,10 @@
 package org.jorgemendez.apiservlet.webapp.session.repositories;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import org.jorgemendez.apiservlet.webapp.session.configs.MysqlConnPrincipal;
+import org.jorgemendez.apiservlet.webapp.session.configs.Repositorio;
 import org.jorgemendez.apiservlet.webapp.session.model.Categoria;
 import org.jorgemendez.apiservlet.webapp.session.model.Producto;
 
@@ -7,13 +12,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repositorio
 public class ProductosRepositoryJdbcImpl implements Repository<Producto>{
+    @Inject
+    @MysqlConnPrincipal
     private Connection conn;
-
-    public ProductosRepositoryJdbcImpl(Connection conn) {
-        this.conn = conn;
-    }
-
     @Override
     public List<Producto> listar() throws SQLException {
         List<Producto> productos = new ArrayList<>();

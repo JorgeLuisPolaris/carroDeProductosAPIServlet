@@ -28,9 +28,9 @@ public class AplicacionListener implements ServletContextListener, ServletReques
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         servletContext.log("Inicializando la sessión http");
-        Carro carro = new Carro();
-        HttpSession session = se.getSession();
-        session.setAttribute("carro",carro);
+       // Carro carro = new Carro();
+       // HttpSession session = se.getSession();
+      //  session.setAttribute("carro",carro);
 
     }
 

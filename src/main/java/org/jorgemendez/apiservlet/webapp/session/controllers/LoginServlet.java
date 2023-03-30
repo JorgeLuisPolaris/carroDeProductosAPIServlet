@@ -1,5 +1,7 @@
 package org.jorgemendez.apiservlet.webapp.session.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -13,11 +15,16 @@ import java.util.Optional;
 
 @WebServlet({"/login","/login.html"})
 public class LoginServlet extends HttpServlet {
+    @Inject
+    @Named("defectoU")
+    private UsuarioService service;
+
+    @Inject
+    private LoginService login;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String pass = req.getParameter("password");
-        UsuarioService service = new UsuarioServiceImpl((Connection) req.getAttribute("conn"));
         Optional<Usuario> usuarioOptional = service.login(username,pass);
         if (usuarioOptional.isPresent()) {
             HttpSession session = req.getSession();
@@ -31,7 +38,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        LoginService login = new LoginServiceSessionImpl();
         Optional<String> usernameOptional = login.getUsername(req);
         if (usernameOptional.isPresent()){
             resp.setContentType("text/html; charset=UTF-8");

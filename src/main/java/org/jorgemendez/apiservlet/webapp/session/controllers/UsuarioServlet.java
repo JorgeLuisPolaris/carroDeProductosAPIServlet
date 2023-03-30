@@ -1,5 +1,7 @@
 package org.jorgemendez.apiservlet.webapp.session.controllers;
 
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,10 +17,12 @@ import java.util.Optional;
 
 @WebServlet("/usuarios")
 public class UsuarioServlet extends HttpServlet {
+    @Inject
+    @Named("defectoU")
+    private UsuarioService usuarioService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Connection conn = (Connection) req.getAttribute("conn");
-        UsuarioService usuarioService = new UsuarioServiceImpl(conn);
+
         List<Usuario> usuarios = usuarioService.listar();
 
         LoginService auth = new LoginServiceSessionImpl();

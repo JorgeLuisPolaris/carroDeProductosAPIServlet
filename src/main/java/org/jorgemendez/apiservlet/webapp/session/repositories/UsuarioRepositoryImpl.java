@@ -1,19 +1,22 @@
 package org.jorgemendez.apiservlet.webapp.session.repositories;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import org.jorgemendez.apiservlet.webapp.session.configs.MysqlConnPrincipal;
+import org.jorgemendez.apiservlet.webapp.session.configs.Repositorio;
 import org.jorgemendez.apiservlet.webapp.session.model.Categoria;
 import org.jorgemendez.apiservlet.webapp.session.model.Usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repositorio
 public class UsuarioRepositoryImpl implements UsuarioRepository{
-
+    @Inject
+    @MysqlConnPrincipal
     private Connection conn;
 
-    public UsuarioRepositoryImpl(Connection conn) {
-        this.conn = conn;
-    }
     @Override
     public List<Usuario> listar() throws SQLException {
         List<Usuario> usuarios = new ArrayList<>();
